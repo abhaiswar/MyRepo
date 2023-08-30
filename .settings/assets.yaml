@@ -1,0 +1,65 @@
+name: Project1
+version: 2
+projectReferences: 
+resources: 
+  - name: .classpath
+    type: com.ibm.rational.test.lt.classpath
+    dependencies: 
+      - path: /Project1/src
+        type: javaClasspath
+  - name: JpetUI.recdata
+  - name: JpetUI.recsession
+    type: com.ibm.rational.test.lt.recsession
+    dependencies: 
+      - path: /Project1/JpetUI.recdata
+        type: recsessionRecdata
+  - name: JpetUI.testsuite
+    type: com.ibm.rational.test.lt.test
+    version: 10.5.3.0
+    properties: 
+      features: 'com.ibm.rational.test.lt.feature.lt,com.ibm.rational.test.lt.feature.mobileweb'
+      type: com.ibm.rational.test.lt.lttest
+      uid: A1EE46325556E010F17FB53138613931
+    dependencies: 
+      - path: /Project1/JpetUI.recsession
+        type: testRecsession
+      - path: /Project1/_google_com_c2c.ma
+        type: test#moeb.applicationPackage
+  - name: JpetUI_1693289308279.stats
+    type: com.ibm.rational.test.lt.stats.session
+    properties: 
+      startTime: 1693289308279
+      tags: 
+      testId: A1EE46325556E010F17FB53138613931
+      testName: JpetUI
+    dependencies: 
+      - path: /Project1/JpetUI.testsuite
+        type: statsSessionTest
+      - path: /Project1/JpetUI_1693289308279.xmoebreport
+        type: statsSessionAsset
+      - path: /Project1/JpetUI_1693289308279_orch!system.mstats
+        type: statsSessionStore
+      - path: /Project1/JpetUI_1693289308279_orch!system.rstats
+        type: statsSessionStore
+      - path: /Project1/JpetUI_1693289308279_perf!localhost.mstats
+        type: statsSessionStore
+      - path: /Project1/JpetUI_1693289308279_perf!localhost.rstats
+        type: statsSessionStore
+      - path: /Project1/JpetUI_1693289310147.executiondlr
+        type: statsSessionAsset
+  - name: JpetUI_1693289308279.xmoebreport
+  - name: JpetUI_1693289308279_orch!system.mstats
+  - name: JpetUI_1693289308279_orch!system.rstats
+    type: com.ibm.rational.test.lt.stats.raw
+  - name: JpetUI_1693289308279_perf!localhost.mstats
+  - name: JpetUI_1693289308279_perf!localhost.rstats
+    type: com.ibm.rational.test.lt.stats.raw
+  - name: JpetUI_1693289310147.executiondlr
+  - name: _google_com_c2c.ma
+    type: moeb.applicationPackage
+  - name: src
+    resources: 
+      - name: test
+        resources: 
+          - name: JpetUI_Test_A1EE46325556E010F17FB53138613931.java
+            type: com.ibm.rational.test.lt.generatedCode
